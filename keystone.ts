@@ -1,5 +1,6 @@
 import 'dotenv/config'; // brings in our .env vars
 import { config, createSchema } from '@keystone-next/keystone/schema'; // note: if stuff breaks they changed it to @keystone/whatever
+import { User } from './schemas/User';
 
 const databaseURL =
   process.env.DATABASE_URL || 'mongodb://localhost/keystone=sick-fits-tutorial'; // second is a fallback
@@ -24,6 +25,8 @@ export default config({
   },
   lists: createSchema({
     // schema items go here
+    // in JS, when the prop and the value are the same we just write the name
+    User,
   }),
   ui: {
     // TODO: change this for roles
