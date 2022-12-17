@@ -6,6 +6,8 @@ import {
   statelessSessions,
 } from '@keystone-next/keystone/session';
 import { User } from './schemas/User';
+import { Product } from './schemas/Product';
+import { ProductImage } from './schemas/ProductImage';
 
 const databaseURL =
   process.env.DATABASE_URL || 'mongodb://localhost/keystone=sick-fits-tutorial'; // second is a fallback
@@ -48,6 +50,8 @@ export default withAuth(
       // schema items go here
       // in JS, when the prop and the value are the same we just write the name
       User,
+      Product,
+      ProductImage,
     }),
     ui: {
       // show the ui only for the people who pass this test
