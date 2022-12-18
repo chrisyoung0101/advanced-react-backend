@@ -1,4 +1,4 @@
-import { integer, select, text } from '@keystone-next/fields';
+import { integer, select, text, relationship } from '@keystone-next/fields';
 import { list } from '@keystone-next/keystone/schema';
 
 export const Product = list({
@@ -11,6 +11,16 @@ export const Product = list({
         displayMode: 'textarea',
       },
     }),
+    photo: relationship({
+      ref: 'ProductImage.product',
+      ui: {
+        displayMode: 'cards',
+        cardFields: ['image', 'altText'],
+        inlineCreate: { fields: ['image', 'altText'] },
+        inlineEdit: { fields: ['image', 'altText'] },
+      },
+    }),
+
     // only show the product when it is ready to be shown or something ?
     status: select({
       options: [
