@@ -1,5 +1,6 @@
 import { graphQLSchemaExtension } from '@keystone-next/keystone/schema';
 import addToCart from './addToCart';
+import checkout from './checkout';
 
 // we are extending the graphql schema with our own custom mutation
 
@@ -11,12 +12,14 @@ export const extendGraphqlSchema = graphQLSchemaExtension({
   typeDefs: graphql`
     type Mutation {
       addToCart(productId: ID): CartItem
+      checkout(token: String!): Order
     }
   `,
   // links to node.js functions that will run "when those things are requested upon via the graphql api" <-?
   resolvers: {
     Mutation: {
       addToCart,
+      checkout,
     },
   },
 });
