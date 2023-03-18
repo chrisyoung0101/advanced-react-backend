@@ -9,3 +9,7 @@ variables.env
 *.env
 .keystone
 *.db
+.keystone/admin/.next/cache/next-babel-loader
+.keystone/admin/.next/static/development/_buildManifest.js
+.gitignore
+.keystone/admin/.next/static/chunks/webpack.js
